@@ -1,0 +1,29 @@
+{
+  "name": "backendidsiapps/promocode",
+  "keywords": [
+    "laravel",
+    "promocode"
+  ],
+  "license": "MIT",
+  "version": "1.0.0",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Backend",
+      "email": "backendidsiapps@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Backendidsiapps\\Promocode\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Backendidsiapps\\Promocode\\PromocodeServiceProvider"
+      ]
+    }
+  }
+}
