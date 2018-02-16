@@ -4,7 +4,6 @@ namespace Backendidsiapps\Promocode;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use function strtoupper;
 
 /**
  * Class Promocode
@@ -27,12 +26,12 @@ class Promocode extends Model
      */
     public static function generateCode($length = 8, $discount = 10)
     {
-        $randomString = strtoupper(Str::random($length));
-
+        $randomString = substr(str_shuffle("23456789ABCDEFGHJKMNPQRSTUVWXYZ"), 0, $length);
+        
         if (self::where('code', $randomString)->exists()) {
             return self::generateCode($length, $discount);
         }
-        
+
         $discount = self::normalizeDiscount($discount);
 
         return self::create(['discount' => $discount, 'code' => $randomString, 'hash' => Str::random(60)]);
