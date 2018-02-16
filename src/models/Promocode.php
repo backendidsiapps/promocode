@@ -26,8 +26,8 @@ class Promocode extends Model
      */
     public static function generateCode($length = 8, $discount = 10)
     {
-        $randomString = substr(str_shuffle("23456789ABCDEFGHJKMNPQRSTUVWXYZ"), 0, $length);
-        
+        $randomString = substr(str_shuffle('23456789ABCDEFGHJKMNPQRSTUVWXYZ'), 0, $length);
+
         if (self::where('code', $randomString)->exists()) {
             return self::generateCode($length, $discount);
         }
